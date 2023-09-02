@@ -1,5 +1,5 @@
 # Autonomous-Vehicle-with-CCPP-Based-On-BFS-with-Cloud-Server
-This is the final year project for Liverpool John Moores University for partial fulfillment of Bachelor in Electrical and Electronics Engineering Degree. 
+This is the final year project for the partial fulfillment of Bachelor in Electrical and Electronics Engineering Degree at Liverpool John Moores University. 
 
 ## Setup 
 Follow each section underneath to properlly set up the Arduino Uno, ESP32Cam and the cloud server used in this project.
