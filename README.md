@@ -1,5 +1,8 @@
 # Autonomous-Vehicle-with-CCPP-Based-On-BFS-with-Cloud-Server
 This is the final year project for Liverpool John Moores University for partial fulfillment of Bachelor in Electrical and Electronics Engineering Degree. 
+
+![IMG20230823224646](https://github.com/boboTheDev/Autonomous-Vehicle-with-CCPP-Based-On-BFS-with-Cloud-Server/assets/91797672/1f0b03e8-6b37-4bc0-967d-96fa23c8b378)
+
 ## Setup 
 Follow each section underneath to properlly set up the Arduino Uno, ESP32Cam and the cloud server used in this project.
 
@@ -10,6 +13,9 @@ To update the server IP and server Port, update this line of code in the setup f
 ```C++
 mySerial.println("13.59.52.41,8080");
 ```
+This library is used to fetch data from the MPU6050 module: [MPU6050_light](https://github.com/rfetick/MPU6050_light)
+The other dependencies can be downloaded directly from the Arduino IDE's library manager.
+
 ### ESP32CamMain
 Upload this code to the ESP32Cam. As in ArduinoMain, replace the ROW and COL with the desired number of rows and columns to be used.
 
