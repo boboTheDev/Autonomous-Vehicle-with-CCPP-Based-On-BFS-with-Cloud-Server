@@ -1,8 +1,6 @@
 # Autonomous-Vehicle-with-CCPP-Based-On-BFS-with-Cloud-Server
 This is the final year project for Liverpool John Moores University for partial fulfillment of Bachelor in Electrical and Electronics Engineering Degree. 
 
-![IMG20230823224646](https://github.com/boboTheDev/Autonomous-Vehicle-with-CCPP-Based-On-BFS-with-Cloud-Server/assets/91797672/1f0b03e8-6b37-4bc0-967d-96fa23c8b378)
-
 ## Setup 
 Follow each section underneath to properlly set up the Arduino Uno, ESP32Cam and the cloud server used in this project.
 
@@ -33,3 +31,5 @@ node app.js
 ```
 
 The html frontend page is served as a static page, which is located in the public folder. The default port used is 8080. To change the port, you need to make the changes in the codes for the microprocessors as well. 
+
+<img src="https://github.com/boboTheDev/Autonomous-Vehicle-with-CCPP-Based-On-BFS-with-Cloud-Server/assets/91797672/1f0b03e8-6b37-4bc0-967d-96fa23c8b378" alt="drawing" width="500"/>
