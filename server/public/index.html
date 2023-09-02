@@ -1,0 +1,131 @@
+<!-- index.html (in the "public" folder) -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-time Updates</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+  
+  <script src="./map.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  
+
+</head>
+
+
+<body class="bg-color">
+  <h1 id="message">Autonomous Vehicle with CCPP Based On BFS</h1>
+  <h2 class="normal-txt">The real-time update of the grid explored by the vehicle will show up in the grid below.</h2>
+  <!-- MAP -->
+  <!-- <div id="map"></div> -->
+  <!-- MAP END -->
+
+  <!-- GRID -->
+  <div class="grid-container">
+    <!-- Grid cells -->
+    <div class="grid-item" id="00"></div>
+    <div class="grid-item" id="01"></div>
+    <div class="grid-item" id="02"></div>
+    <div class="grid-item" id="03"></div>
+    
+    <div class="grid-item" id="10"></div>
+    <div class="grid-item" id="11"></div>
+    <div class="grid-item" id="12"></div>
+    <div class="grid-item" id="13"></div>
+    
+    <div class="grid-item" id="20"></div>
+    <div class="grid-item" id="21"></div>
+    <div class="grid-item" id="22"></div>
+    <div class="grid-item" id="23"></div>
+    
+    <div class="grid-item" id="30"></div>
+    <div class="grid-item" id="31"></div>
+    <div class="grid-item" id="32"></div>
+    <div class="grid-item" id="33"></div>
+  
+  </div>
+  <!-- GRID END -->
+  <div class="legends">
+    <div class="legend">
+      <div class="circle unexplored-co"></div>
+      <span>Unexplored Cell</span>
+    </div>
+    <div class="legend">
+      <div class="circle explored-co"></div>
+      <span>Explored Cell</span>
+    </div>
+    <div class="legend">
+      <div class="circle vehicle-co"></div>
+      <span>Vehicle Position</span>
+    </div>
+    <div class="legend">
+      <div class="circle obstacle-co"></div>
+      <span>Obstacle</span>
+    </div>
+  </div>
+  
+  <h2 class="btm-txt">Created By Minn Bo Bo for a partial fulfillment of the requirements for the Bachelor of Engineering in Electrical and Electronics.<br>Liverpool John Moores University</h2>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    // Listen for updates from the server
+    socket.on('updategrid', (data) => {
+      updateGrid(data.gridData);
+      document.getElementById("message").innerText="HEHE"
+    });
+
+    function updateGrid(data) {
+      const rows = 4;
+      const cols = 4;
+
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          const cellValue = data[row][col];
+          const cellId = row.toString() + col.toString(); // Get the corresponding cell ID
+          const gridCell = document.getElementById(cellId);
+
+          gridCell.innerHTML = cellValue;
+          if (gridCell.classList.contains("vehicle")){
+            gridCell.classList.remove("vehicle");
+          } 
+          if (gridCell.classList.contains("explored")){
+            gridCell.classList.remove("explroed");
+          }
+          if (gridCell.classList.contains("metal")){
+            gridCell.classList.remove("metal");
+          }
+          if (gridCell.classList.contains("obstacle")){
+            gridCell.classList.remove("obstacle");
+          }
+          
+
+          if (cellValue == 3){
+            gridCell.classList.add("vehicle");
+          } else if (cellValue == 2){
+            gridCell.classList.add("obstacle");
+          } else if (cellValue == 1){
+            gridCell.classList.add("explored");
+          } 
+          
+        }
+      }
+    }
+
+  
+
+  </script>
+  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
+</body>
+</html>

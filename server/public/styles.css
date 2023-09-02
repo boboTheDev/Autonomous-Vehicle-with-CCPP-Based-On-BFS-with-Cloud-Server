@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.bg-color{
+  background: rgb(255,90,162);
+  background: radial-gradient(circle, rgba(255,90,162,1) 0%, rgba(134,162,202,1) 77%, rgba(148,178,233,1) 100%);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 100px); /* 6 columns with 100px width each */
+  grid-template-rows: repeat(4, 100px);    /* 6 rows with 100px height each */
+  gap: 5px; /* Gap between grid cells */
+  background-color: #f0f0f0;
+  border: 50px solid #fff;
+  border-radius: 30px;
+  padding: 10px;
+  box-shadow: 2px -1px 103px 26px rgba(102, 93, 93, 0.75);
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.grid-container .vehicle{
+  background-color: #69D4FF;
+}
+
+.grid-container .explored{
+  background-color: #A0FF9E;
+}
+
+.grid-container .metal{
+  background-color: #FF6752;
+}
+
+.grid-container .obstacle{
+  background-color: #3B3B3B;
+}
+
+
+#map {
+  height: 500px;
+  width: 800px;
+}
+
+#message{
+  margin-bottom: 20px;
+  color: white;
+  font-size: 50px;
+}
+
+.normal-txt{
+  color: white;
+  margin-bottom: 100px;
+}
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 5px black;
+  margin-bottom: 20px;
+  box-shadow: 2px -1px 100px 6px rgba(233, 232, 232, 0.75);
+
+}
+
+.legends{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: -18px;
+}
+
+.legend span{
+  color: white;
+}
+
+.obstacle-co { background-color: #3B3B3B; }
+.vehicle-co { background-color: #69D4FF; }
+.explored-co { background-color: #A0FF9E; }
+.unexplored-co { background-color: white; }
+
+.btm-txt{
+  font-size: 20px;
+  color :white;
+  margin-top: 30px;
+  font-weight: 200;
+  text-align: center;
+}
